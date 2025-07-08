@@ -739,52 +739,52 @@ class BTECCrawler:
         self.logger.info(f"Report saved to: {report_path}")
         return report
 
-# Usage example and configuration
-async def main():
-    """Main function demonstrating usage"""
+# # Usage example and configuration
+# async def main():
+#     """Main function demonstrating usage"""
     
-    # Configuration
-    config = {
-        'base_url': 'https://btec.fpt.edu.vn/',
-        'max_concurrent_requests': 3,  # Be respectful to the server
-        'delay_between_requests': 2.0,  # 2 seconds between requests
-        'max_retries': 3,
-        'timeout': 30,
-        'output_dir': './btec_crawl_output',
-        'pdf_engine': 'weasyprint',  # Options: 'weasyprint', 'playwright'
-        'download_existing_pdfs': True,
-        'max_depth': 5,
-        'respect_robots_txt': True
-    }
+#     # Configuration
+#     config = {
+#         'base_url': 'https://btec.fpt.edu.vn/',
+#         'max_concurrent_requests': 3,  # Be respectful to the server
+#         'delay_between_requests': 2.0,  # 2 seconds between requests
+#         'max_retries': 3,
+#         'timeout': 30,
+#         'output_dir': './btec_crawl_output',
+#         'pdf_engine': 'weasyprint',  # Options: 'weasyprint', 'playwright'
+#         'download_existing_pdfs': True,
+#         'max_depth': 5,
+#         'respect_robots_txt': True
+#     }
     
-    # Seed URLs for different campus sections
-    seed_urls = [
-        'https://btec.fpt.edu.vn/',
-        'https://btec.fpt.edu.vn/courses',
-        'https://btec.fpt.edu.vn/site'
-    ]
+#     # Seed URLs for different campus sections
+#     seed_urls = [
+#         'https://btec.fpt.edu.vn/',
+#         'https://btec.fpt.edu.vn/courses',
+#         'https://btec.fpt.edu.vn/site'
+#     ]
     
-    # Run crawler
-    async with BTECCrawler(config) as crawler:
-        try:
-            report = await crawler.crawl_website(seed_urls)
-            print("\n" + "="*50)
-            print("CRAWL COMPLETED SUCCESSFULLY")
-            print("="*50)
-            print(f"Pages crawled: {report['summary']['total_pages_crawled']}")
-            print(f"PDFs generated: {report['summary']['total_pdfs_generated']}")
-            print(f"PDFs downloaded: {report['summary']['total_pdfs_downloaded']}")
-            print(f"Errors: {report['summary']['total_errors']}")
-            print(f"Duration: {report['summary']['crawl_duration']}")
-            print("\nCampus breakdown:")
-            for campus, count in report['campus_breakdown'].items():
-                print(f"  {campus}: {count} pages")
-            print(f"\nOutput directory: {config['output_dir']}")
+#     # Run crawler
+#     async with BTECCrawler(config) as crawler:
+#         try:
+#             report = await crawler.crawl_website(seed_urls)
+#             print("\n" + "="*50)
+#             print("CRAWL COMPLETED SUCCESSFULLY")
+#             print("="*50)
+#             print(f"Pages crawled: {report['summary']['total_pages_crawled']}")
+#             print(f"PDFs generated: {report['summary']['total_pdfs_generated']}")
+#             print(f"PDFs downloaded: {report['summary']['total_pdfs_downloaded']}")
+#             print(f"Errors: {report['summary']['total_errors']}")
+#             print(f"Duration: {report['summary']['crawl_duration']}")
+#             print("\nCampus breakdown:")
+#             for campus, count in report['campus_breakdown'].items():
+#                 print(f"  {campus}: {count} pages")
+#             print(f"\nOutput directory: {config['output_dir']}")
             
-        except Exception as e:
-            print(f"Crawl failed: {e}")
-            import traceback
-            traceback.print_exc()
+#         except Exception as e:
+#             print(f"Crawl failed: {e}")
+#             import traceback
+#             traceback.print_exc()
 
-if __name__ == "__main__":
-    asyncio.run(main())
+# if __name__ == "__main__":
+#     asyncio.run(main())
