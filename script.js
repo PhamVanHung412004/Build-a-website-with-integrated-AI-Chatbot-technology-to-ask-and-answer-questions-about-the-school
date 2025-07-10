@@ -700,10 +700,6 @@ function addBotResponse(userMessage) {
   msgDiv.className = 'chat-message bot-message';
   const contentDiv = document.createElement('div');
   contentDiv.className = 'message-content';
-  contentDiv.textContent = 'Cảm ơn bạn đã chọn: ' + userMessage + '. Chức năng chat sẽ được cập nhật thêm!';
-  msgDiv.appendChild(contentDiv);
-  chatBody.appendChild(msgDiv);
-  chatBody.scrollTop = chatBody.scrollHeight;
 }
 
 // === BỔ SUNG: XỬ LÝ GỬI VÀ HIỂN THỊ ẢNH TRONG CHATBOX ===
