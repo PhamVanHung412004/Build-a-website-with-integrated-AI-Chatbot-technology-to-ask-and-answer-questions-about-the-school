@@ -28,14 +28,6 @@ class INIT_INFORMATION_VECTORDB:
     index = vectorDB.load_index("VectorDB")
     retriever = index.as_retriever(similarity_top_k=2)
 
-# retrieved_nodes = retriever.retrieve("Cho tôi thông tin đầy đủ về trường cao đẳng Btec FPT?")
-# # for i in range(len(retrieved_nodes)):
-# #     print(retrieved_nodes[0].text)
-
-# user = input("Câu hỏi: ")
-# retrieved_nodes = INIT_INFORMATION_VECTORDB.retriever.retrieve(user)
-# get_context : str = Sematic_Search(user).run(INIT_INFORMATION_VECTORDB.retriever)
-# print(retrieved_nodes)
 @app.route('/chat', methods=['POST'])
 def chat():
     data : Dict[str, str] = request.get_json()
