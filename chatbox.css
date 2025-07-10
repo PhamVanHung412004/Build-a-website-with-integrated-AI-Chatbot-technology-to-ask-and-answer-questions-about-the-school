@@ -320,3 +320,9 @@
     min-height: 140px;
   }
 } 
+.custom-chatbox {
+      padding-top: 0 !important;
+  }
+  .chatbox-title-box {
+      margin-top: 0 !important;
+  }
