@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Chủ Truyền Thống Hiện Đại</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="hero.css">
+  <link rel="stylesheet" href="alumni.css">
+  <link rel="stylesheet" href="news.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="chatbox.css">
+  <link rel="stylesheet" href="utilities.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-logo">
+      <img src="image/Logo-Btec.png" alt="BTEC Logo">
+    </div>
+    <nav class="navbar-menu">
+      <a href="#home">Trang chủ</a>
+      <a href="#about">Giới thiệu</a>
+      <a href="#program">Chương trình</a>
+      <a href="#highlights">Điểm nổi bật</a>
+      <a href="#alumni">Cựu sinh viên</a>
+      <a href="#news">Tin tức</a>
+      <a href="#contact" onclick="scrollToFooter()">Liên hệ</a>
+      <button class="navbar-register-btn open-register-popup">
+        <img src="image/icon-lotus.png" alt="Icon hoa sen" class="register-icon">
+        <span>Đăng ký</span>
+      </button>
+    </nav>
+    <button class="navbar-toggle" id="navbarToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+  <!-- Dark mode toggle button: moved out of hero-section for global visibility -->
+  <button class="dark-mode-toggle" id="darkModeToggle" title="Chuyển đổi Dark Mode">
+    🌙
+  </button>
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    
+    <!-- Hiệu ứng ánh sáng mùa hè -->
+    <div class="sun-rays">
+      <div class="sun-ray"></div>
+      <div class="sun-ray"></div>
+      <div class="sun-ray"></div>
+      <div class="sun-ray"></div>
+      <div class="sun-ray"></div>
+      <div class="sun-ray"></div>
+      <div class="sun-ray"></div>
+      <div class="sun-ray"></div>
+    </div>
+    <div class="lens-flare"></div>
+    
+    <!-- Background và các thành phần truyền thống -->
+    <img src="image/hero-bg.png" alt="Background" class="hero-bg">
+    <img src="image/temple-pillar-left.png" alt="Cột trái" class="pillar pillar-left">
+    <img src="image/temple-pillar-right.png" alt="Cột phải" class="pillar pillar-right">
+    <img src="image/red-lantern.png" alt="Đèn lồng trái" class="lantern lantern-left">
+    <img src="image/red-lantern.png" alt="Đèn lồng phải" class="lantern lantern-right">
+    <img src="image/red-silk-ribbon.png" class="red-ribbon red-ribbon-left" style="--ribbon-rotate: 6deg; --ribbon-flip: 1;">
+    <img src="image/red-silk-ribbon.png" class="red-ribbon red-ribbon-right" style="--ribbon-rotate: 6deg; --ribbon-flip: -1;">
+    
+    <!-- Code elements floating in background -->
+    <!-- Đã xóa <div class="code-elements"> ... </div> -->
+    
+    <div class="hero-center-group">
+      <img src="image/temple-roof-hero1.png" alt="Mái đình" class="temple-roof">
+      
+      <!-- Nhân vật sĩ tử mini -->
+      <div class="scholar-mini">
+        <div class="scholar-body">
+          <div class="scholar-head">
+            <div class="scholar-eyes">
+              <div class="eye"></div>
+              <div class="eye"></div>
+            </div>
+          </div>
+          <div class="scholar-hat"></div>
+          <div class="scholar-arms">
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+          </div>
+          <div class="scholar-scroll">
+            <div class="scroll-text">CODE</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-dragon-group">
+        <div class="scroll-wrapper">
+          <img src="image/thu-phap-truyen-thong.png" alt="Chiếu thư" class="hero-scroll">
+        </div>
+        <img src="image/golden-dragon-motif.png" alt="Rồng vàng" class="dragon-motif">
+      </div>
+      
+      <!-- Slogan phụ -->
+      
+      <div class="hero-buttons">
+        <button class="main-btn cta-btn open-register-popup">Đăng ký ngay</button>
+        <button class="main-btn">Tìm hiểu thêm</button>
+        <button class="main-btn open-chatbox-btn">Xem chi tiết</button>
+      </div>
+    </div>
+    
+    <img src="image/lotus-flower-2.png" alt="Hoa sen 3" class="lotus-decor lotus-decor-3">
+    
+    <!-- Đã xóa scroll-indicator và scroll-text (chữ Khám phá thêm) -->
+  </section>
+  <!-- ================= SECTION: GIỚI THIỆU BTEC FPT SCHOOLS ================= -->
+  <!--
+    Section này gồm 2 cột:
+    - Trái: Minh họa trường thi xưa lồng ghép công nghệ, dùng ảnh illustration-exam-modern.png, icon-lotus-intro.png, icon-laptop-intro.png, viền border-cloud-intro.png, border-wave-intro.png
+    - Phải: Nội dung giới thiệu BTEC FPT, giá trị cốt lõi, triết lý giáo dục, timeline, dùng ảnh timeline-btec-intro.png
+    - Nền section: bg-intro-btec.png
+    - Tất cả ảnh lấy từ /Image-gioi-thieu/
+    - Nội dung lấy từ https://btec.fpt.edu.vn/ (giới thiệu, giá trị, triết lý, timeline)
+  -->
+  <section class="intro-btec-section" id="about">
+    <div class="clouds-row">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+    </div>
+    <div class="intro-btec-container">
+      <div class="intro-btec-left">
+        <!-- Minh họa chính -->
+        <div class="exam-illustration-frame">
+          <img src="Image-gioi-thieu/illustration-exam-modern.png" alt="Trường thi xưa lồng ghép công nghệ" class="exam-illustration-bg">
+          <img src="Image-gioi-thieu/icon-lotus-intro.png" alt="Hoa sen" class="exam-lotus-intro">
+          <img src="Image-gioi-thieu/icon-laptop-intro.png" alt="Laptop hiện đại" class="exam-laptop-intro">
+        </div>
+      </div>
+      <!-- Cột phải: Nội dung giới thiệu BTEC FPT -->
+      <div class="intro-btec-right">
+        <!-- Tiêu đề section -->
+        <h2 class="intro-btec-title">Giới thiệu BTEC FPT Schools</h2>
+        <!-- Nội dung giới thiệu (trích từ web) -->
+        <div class="intro-btec-desc">
+          <p><strong>BTEC FPT</strong> là chương trình đào tạo Cao đẳng Anh Quốc tại Việt Nam, thuộc hệ thống giáo dục FPT Education. Sinh viên được học tập theo chuẩn quốc tế, phát triển toàn diện kỹ năng chuyên môn, ngoại ngữ và tư duy hội nhập toàn cầu.</p>
+          <ul class="intro-btec-values">
+            <li><strong>Giá trị cốt lõi:</strong> Sáng tạo – Chủ động – Hội nhập – Thực tiễn</li>
+            <li><strong>Triết lý giáo dục:</strong> Lấy người học làm trung tâm, phát triển năng lực cá nhân, gắn kết thực tiễn doanh nghiệp</li>
+          </ul>
+        </div>
+        <!-- Sóng nước trang trí kéo dài full ngang, ngay trên dòng text -->
+        <div class="wave-decor-wrap">
+          <img src="Image-gioi-thieu/border-wave-intro.png" alt="Sóng nước" class="border-wave-full">
+          <div class="wave-text">
+            BTEC FPT không ngừng mở rộng quy mô, hợp tác quốc tế, đổi mới chương trình đào tạo và mang đến nhiều cơ hội nghề nghiệp cho sinh viên trên toàn quốc.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END SECTION: GIỚI THIỆU BTEC FPT SCHOOLS ================= -->
+  <!-- Section: Chương trình đào tạo -->
+  <section class="program-section" id="program">
+    <div class="clouds-row">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+    </div>
+    <h2 class="section-title">Chương trình đào tạo</h2>
+    <div class="program-grid">
+      <!-- Card 1: Lập trình máy tính -->
+      <div class="program-card">
+        <img src="image_khoa_hoc/icon-programming-btec.png" alt="Software Engineering" class="program-icon">
+        <h3>Lập trình máy tính<br><span class="en">Software Engineering</span></h3>
+        <p>Đào tạo kỹ năng lập trình, phát triển phần mềm, tư duy giải quyết vấn đề, làm chủ công nghệ mới như AI, Cloud, Data....</p>
+        <a href="https://btec.fpt.edu.vn/chuong-trinh-dao-tao/lap-trinh-may-tinh/ky-thuat-phan-mem/" class="program-link" target="_blank">Tìm hiểu thêm</a>
+      </div>
+      <!-- Card 2: Quản trị kinh doanh -->
+      <div class="program-card">
+        <img src="image_khoa_hoc/icon-business-btec.png" alt="Business Management" class="program-icon">
+        <h3>Quản trị kinh doanh<br><span class="en">Business Management, Logistics, Marketing</span></h3>
+        <p>Trang bị kiến thức quản trị hiện đại, kỹ năng quản lý, marketing số, logistics, phát triển tư duy lãnh đạo và hội nhập quốc tế....</p>
+        <a href="https://btec.fpt.edu.vn/chuong-trinh-dao-tao/quan-tri-kinh-doanh/quan-tri-kinh-doanh/" class="program-link" target="_blank">Tìm hiểu thêm</a>
+      </div>
+      <!-- Card 3: Thiết kế đồ họa -->
+      <div class="program-card">
+        <img src="image_khoa_hoc/icon-graphicdesign-btec.png" alt="Graphic Design" class="program-icon">
+        <h3>Thiết kế đồ họa<br><span class="en">Graphic Design</span></h3>
+        <p>Học thiết kế sáng tạo, mỹ thuật số, UI/UX, branding, animation, kết hợp nghệ thuật truyền thống và công nghệ hiện đại....</p>
+        <a href="https://btec.fpt.edu.vn/chuong-trinh-dao-tao/thiet-ke-do-hoa/thiet-ke-do-hoa/" class="program-link" target="_blank">Tìm hiểu thêm</a>
+      </div>
+      <!-- Card 4: Công nghệ bán dẫn -->
+      <div class="program-card">
+        <img src="image_khoa_hoc/icon-semiconductor-btec.png" alt="Semiconductor Technology" class="program-icon">
+        <h3>Công nghệ bán dẫn<br><span class="en">Semiconductor Technology</span></h3>
+        <p>Tiếp cận công nghệ chip, vi mạch, kỹ thuật bán dẫn hiện đại, đáp ứng nhu cầu nhân lực ngành công nghiệp mũi nhọn.....</p>
+        <a href="https://btec.fpt.edu.vn/chuong-trinh-dao-tao/ky-thuat-cong-nghe-ban-dan/cong-nghe-ban-dan/" class="program-link" target="_blank">Tìm hiểu thêm</a>
+      </div>
+      <!-- Card 5: Thể thao điện tử -->
+      <div class="program-card">
+        <img src="image_khoa_hoc/icon-esports-btec.png" alt="Esports" class="program-icon">
+        <h3>Thể thao điện tử<br><span class="en">Esports (planned)</span></h3>
+        <p>Đào tạo chuyên sâu về vận hành, sản xuất, quản lý, phát triển vận động viên và tổ chức sự kiện Esports chuyên nghiệp....</p>
+        <a href="https://btec.fpt.edu.vn/chuong-trinh-dao-tao/the-thao-dien-tu-esports/" class="program-link" target="_blank">Tìm hiểu thêm</a>
+      </div>
+      <!-- Card 6: Liên thông quốc tế -->
+      <div class="program-card">
+        <img src="image_khoa_hoc/icon-international-btec.png" alt="International Pathways" class="program-icon">
+        <h3>Liên thông quốc tế<br><span class="en">International Pathways</span></h3>
+        <p>Cơ hội chuyển tiếp học tập tại các trường đại học đối tác quốc tế hàng đầu ở Anh, Úc, Mỹ, Nhật… mở rộng tương lai toàn cầu...</p>
+        <a href="https://btec.fpt.edu.vn/chuong-trinh-dao-tao/danh-sach-cac-truong-lien-thong-cntt-quoc-te/" class="program-link" target="_blank">Tìm hiểu thêm</a>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Điểm nổi bật – Hành trình phát triển tại BTEC FPT / Highlights: Student Journey -->
+  <section class="highlights-section vertical-timeline-section" id="highlights">
+    <!-- Viền mây trải dài ngang section (3 cloud) -->
+    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-1">
+    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-2">
+    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-3">
+    <div class="timeline-decor decor-lotus-left">
+      <img src="image/lotus-flower-2.png" alt="Hoa sen" />
+    </div>
+    <div class="timeline-decor decor-lotus-right">
+      <img src="image/lotus-flower.png" alt="Hoa sen" />
+    </div>
+    <div class="timeline-decor decor-drum">
+      <img src="image-chat-box/chatbox-corner-drum.png" alt="Trống đồng" />
+    </div>
+    <div class="timeline-decor decor-lantern">
+      <img src="image-chat-box/chatbox-corner-drum.png" alt="Lồng đèn đỏ" />
+    </div>
+
+    <h2 class="section-title">
+      ĐIỂM NỔI BẬT – HÀNH TRÌNH PHÁT TRIỂN TẠI BTEC FPT
+    </h2>
+    <div class="vertical-timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-step left" data-step="foundation">
+        <div class="timeline-step-content">
+          <div class="timeline-connector"></div>
+          <div class="timeline-icon"><img src="image-noi-bat/icon-foundation-btecfpt.png" alt="Foundation"></div>
+          <img class="timeline-img" src="image-noi-bat/popup-foundation-btecfpt.jpg" alt="Sinh viên BTEC FPT">
+          <div class="timeline-title">Foundation</div>
+          <div class="timeline-desc">Bạn bắt đầu hành trình tại BTEC FPT với nền tảng giáo dục chuẩn Anh Quốc. Ngay từ những ngày đầu, bạn được tiếp cận môi trường học tập quốc tế, phát triển ngoại ngữ, kỹ năng mềm và tư duy hội nhập.</div>
+        </div>
+        <div class="timeline-popup" id="popup-foundation">
+          <div class="popup-content">
+            <button class="close-popup" data-close="popup-foundation">×</button>
+            <img src="image-noi-bat/popup-foundation-btecfpt.jpg" alt="Foundation Detail" style="max-width:220px;margin-bottom:18px;">
+            <h3>Foundation – Nền tảng hội nhập quốc tế</h3>
+            <p>BTEC FPT là cầu nối giúp sinh viên Việt Nam tiếp cận nền giáo dục quốc tế, trang bị kiến thức, kỹ năng và tinh thần thực học, thực làm. <a href="http://btec.fpt.edu.vn" target="_blank" style="font-size:0.95em;">[Nguồn]</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-step right" data-step="development">
+        <div class="timeline-step-content">
+          <div class="timeline-connector"></div>
+          <div class="timeline-icon"><img src="image-noi-bat/icon-development-btecfpt.png" alt="Development"></div>
+          <img class="timeline-img" src="image-noi-bat/popup-development-btecfpt.jpg" alt="Sinh viên thực hành BTEC FPT">
+          <div class="timeline-title">Development</div>
+          <div class="timeline-desc">Bạn dần trưởng thành qua các dự án thực tế, phòng lab hiện đại, các hoạt động nhóm và thuyết trình. Mỗi ngày là một cơ hội để rèn luyện kỹ năng nghề nghiệp, tư duy công nghệ và khả năng thích nghi với môi trường chuyên nghiệp.</div>
+        </div>
+        <div class="timeline-popup" id="popup-development">
+          <div class="popup-content">
+            <button class="close-popup" data-close="popup-development">×</button>
+            <img src="image-noi-bat/popup-development-btecfpt.jpg" alt="Development Detail" style="max-width:220px;margin-bottom:18px;">
+            <h3>Development – Phát triển kỹ năng thực tiễn</h3>
+            <p>BTEC HND tập trung vào ứng dụng kiến thức vào thực tế, học theo dự án, phát triển kỹ năng mềm và chuyên môn. <a href="http://btec.fpt.edu.vn" target="_blank" style="font-size:0.95em;">[Nguồn]</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-step left" data-step="innovation">
+        <div class="timeline-step-content">
+          <div class="timeline-connector"></div>
+          <div class="timeline-icon"><img src="image-noi-bat/icon-innovation-btecfpt.png" alt="Innovation"></div>
+          <img class="timeline-img" src="image-noi-bat/popup-innovation-btecfpt.jpg" alt="Workshop AI BTEC FPT">
+          <div class="timeline-title">Innovation</div>
+          <div class="timeline-desc">Bạn được khuyến khích sáng tạo, tham gia các cuộc thi, workshop về AI, IoT, Digital Marketing… Những ý tưởng mới được ươm mầm, bạn tự tin thử nghiệm và phát triển sản phẩm công nghệ thực tiễn.</div>
+        </div>
+        <div class="timeline-popup" id="popup-innovation">
+          <div class="popup-content">
+            <button class="close-popup" data-close="popup-innovation">×</button>
+            <img src="image-noi-bat/popup-innovation-btecfpt.jpg" alt="Innovation Detail" style="max-width:220px;margin-bottom:18px;">
+            <h3>Innovation – Đổi mới sáng tạo công nghệ</h3>
+            <p>BTEC FPT tích hợp công nghệ và AI vào giáo dục, khuyến khích sinh viên đổi mới sáng tạo, phát triển giải pháp thực tiễn. <a href="http://btec.fpt.edu.vn" target="_blank" style="font-size:0.95em;">[Nguồn]</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-step right" data-step="industry">
+        <div class="timeline-step-content">
+          <div class="timeline-connector"></div>
+          <div class="timeline-icon"><img src="image-noi-bat/icon-industry-btecfpt.png" alt="Industry"></div>
+          <img class="timeline-img" src="image-noi-bat/popup-industry-btecfpt.jpg" alt="Sinh viên thực tập BTEC FPT">
+          <div class="timeline-title">Industry</div>
+          <div class="timeline-desc">Bạn bước vào môi trường doanh nghiệp qua các kỳ thực tập OJT, company tour, giao lưu với chuyên gia. Những trải nghiệm thực tế giúp bạn hiểu rõ hơn về ngành nghề, mở rộng mạng lưới và sẵn sàng cho sự nghiệp.</div>
+        </div>
+        <div class="timeline-popup" id="popup-industry">
+          <div class="popup-content">
+            <button class="close-popup" data-close="popup-industry">×</button>
+            <img src="image-noi-bat/popup-industry-btecfpt.jpg" alt="Industry Detail" style="max-width:220px;margin-bottom:18px;">
+            <h3>Industry – Kết nối doanh nghiệp, thực tập thực tế</h3>
+            <p>100% sinh viên được thực tập tại doanh nghiệp, nhiều bạn được nhận làm chính thức ngay khi thực tập. <a href="https://btec.fpt.edu.vn/su-kien/sinh-vien-btec-fpt-tiep-can-moi-truong-lam-viec-hien-dai-tai-fpt-software/" target="_blank" style="font-size:0.95em;">[Nguồn]</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-step left" data-step="leadership">
+        <div class="timeline-step-content">
+          <div class="timeline-connector"></div>
+          <div class="timeline-icon"><img src="image-noi-bat/icon-leadership-btecfpt.png" alt="Leadership"></div>
+          <img class="timeline-img" src="image-noi-bat/popup-leadership-btecfpt.jpg" alt="Sinh viên thành tích BTEC FPT">
+          <div class="timeline-title">Leadership</div>
+          <div class="timeline-desc">Bạn tốt nghiệp với tấm bằng quốc tế, tự tin hội nhập, nhiều bạn tiếp tục học lên các trường đại học danh tiếng hoặc trở thành kỹ sư, quản lý tại các tập đoàn lớn. Bạn đã sẵn sàng trở thành công dân toàn cầu, dẫn dắt tương lai.</div>
+        </div>
+        <div class="timeline-popup" id="popup-leadership">
+          <div class="popup-content">
+            <button class="close-popup" data-close="popup-leadership">×</button>
+            <img src="image-noi-bat/popup-leadership-btecfpt.jpg" alt="Leadership Detail" style="max-width:220px;margin-bottom:18px;">
+            <h3>Leadership – Tỏa sáng & hội nhập toàn cầu</h3>
+            <p>Cựu sinh viên BTEC FPT như Tấn Thành (Bosch), Quách Công Tuấn (FPT Software) là minh chứng cho hành trình trưởng thành và tỏa sáng. <a href="https://btec.fpt.edu.vn/hanh-trinh-pha-ken-tro-thanh-ky-su-du-lieu-tai-tap-doan-bosch-cuu-sinh-vien-btec-fpt/" target="_blank" style="font-size:0.95em;">[Nguồn]</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Section: Điểm nổi bật -->
+  <!-- Section: Alumni -->
+  <section class="alumni-honor-board" id="alumni">
+    <!-- Viền mây trải dài ngang section (3 cloud) -->
+    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-1">
+    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-2">
+    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-3">
+    <div class="honor-board-bg">
+      <img src="image/temple-roof-hero.png" class="dragon-border" alt="Dragon Border" />
+      <img src="image/lotus-flower.png" class="lotus-decor" alt="Lotus" />
+      <img src="image/icon-chat-box.png" class="brush-icon" alt="Brush Icon" />
+      <img src="image/Logo-Btec.png" class="btec-logo" alt="BTEC FPT Logo" />
+      <div class="alumni-carousel">
+        <div class="alumni-cards-row">
+      <div class="alumni-card">
+  <div class="alumni-photo-rect">
+    <img src="Image-guong-mat/guong-mat-hn-hong-hanh.jpg" class="alumni-photo-rect-img" alt="Nguyễn Thị Hồng Hạnh" />
+  </div>
+  <div class="alumni-info">
+    <h3>Nguyễn Thị Hồng Hạnh</h3>
+    <div class="alumni-achievement">
+      <strong>Giảng viên IT, FPT BTEC Hà Nội</strong>
+      <p>Truyền cảm hứng học tập suốt đời, dám mơ lớn, hành trình từ Nga đến Paris và FPT BTEC...</p>
+      <a href="https://btec.fpt.edu.vn/tu-nga-den-paris-hanh-trinh-khong-ngung-vuon-cao-cua-giang-vien-fpt-btec-co-nguyen-thi-hong-hanh/" target="_blank">Xem chi tiết</a>
+    </div>
+  </div>
+</div>
+<div class="alumni-card">
+  <div class="alumni-photo-rect">
+    <img src="Image-guong-mat/guong-mat-trinh-van-linh.jpg" class="alumni-photo-rect-img" alt="Trịnh Văn Linh" />
+  </div>
+  <div class="alumni-info">
+    <h3>Trịnh Văn Linh</h3>
+    <div class="alumni-achievement">
+      <strong>Founder Creahub</strong>
+      <p>Từ sinh viên Thiết kế Đồ họa FPT BTEC đến founder startup sáng tạo dành cho cộng đồng thiết kế trẻ...</p>
+      <a href="https://btec.fpt.edu.vn/trinh-van-linh-tu-sinh-vien-thiet-ke-do-hoa-fpt-btec-den-founder-creahub/" target="_blank">Xem chi tiết</a>
+    </div>
+  </div>
+</div>
+<div class="alumni-card">
+  <div class="alumni-photo-rect">
+    <img src="Image-guong-mat/guong-mat-ly-thai-cuong.jpg" class="alumni-photo-rect-img" alt="Lý Thái Cường" />
+  </div>
+  <div class="alumni-info">
+    <h3>Lý Thái Cường</h3>
+    <div class="alumni-achievement">
+      <strong>Sinh viên năm 2, BTEC FPT Cần Thơ</strong>
+      <p>Chưa tốt nghiệp đã có việc làm tại doanh nghiệp công nghệ lớn, thành tích học tập xuất sắc...</p>
+      <a href="https://btec.fpt.edu.vn/co-viec-lam-xin-khi-chua-tot-nghiep-bi-quyet-cua-chang-sinh-vien-nam-2-btec-fpt/" target="_blank">Xem chi tiết</a>
+    </div>
+  </div>
+</div>
+<div class="alumni-card">
+  <div class="alumni-photo-rect">
+    <img src="Image-guong-mat/guong-mat-nguyen-thi-ngan.jpg" class="alumni-photo-rect-img" alt="Nguyễn Thị Ngân" />
+  </div>
+  <div class="alumni-info">
+    <h3>Nguyễn Thị Ngân</h3>
+    <div class="alumni-achievement">
+      <strong>Cựu sinh viên QTKD, hiện học thạc sĩ tại Úc</strong>
+      <p>Truyền cảm hứng về tinh thần cầu tiến, hội nhập quốc tế, hành trình đến nước Úc...</p>
+      <a href="https://btec.fpt.edu.vn/hanh-trinh-toi-uc-hoc-thac-si-cua-cuu-sinh-vien-btec-fpt/" target="_blank">Xem chi tiết</a>
+    </div>
+  </div>
+</div>
+<div class="alumni-card">
+  <div class="alumni-photo-rect">
+    <img src="Image-guong-mat/guong-mat-hn-quach-cong-tuan.jpg" class="alumni-photo-rect-img" alt="Quách Công Tuấn" />
+  </div>
+  <div class="alumni-info">
+    <h3>Quách Công Tuấn</h3>
+    <div class="alumni-achievement">
+      <strong>Quality Engineer tại FPT Software</strong>
+      <p>Bản lĩnh, quyết tâm, từ sinh viên BTEC FPT Hà Nội đến Quality Engineer tại FPT Software...</p>
+      <a href="https://btec.fpt.edu.vn/gap-lai-quach-cong-tuan-cuu-sinh-vien-fpt-btec-va-hanh-trinh-chinh-phuc-vi-tri-quality-engineer-tai-fpt-software/" target="_blank">Xem chi tiết</a>
+    </div>
+  </div>
+</div>
+
+        </div>
+        <div class="carousel-controls">
+          <span class="carousel-dot active"></span>
+          <span class="carousel-dot"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Section: Alumni -->
+  <!-- Section: Tin tức – Bảng thông báo hiện đại / News: Modern Notice Board -->
+  <section class="modern-news-board" id="news">
+    <!-- Viền mây trải dài ngang section (3 cloud) -->
+    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-1">
+    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-2">
+    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-3">
+    <div class="news-board-bg">
+      <img src="image/hero-bg.png" alt="Bảng gỗ" class="news-board-wood">
+      <img src="image/temple-roof-hero.png" alt="Viền vàng" class="news-board-roof">
+      <img src="image/lotus-flower-1.png" alt="Hoa sen" class="news-board-lotus">
+      <div class="news-board-main">
+        <div class="news-board-header">
+          <span class="news-board-icon"><img src="image/icon-chat-box.png" alt="icon chuông"/></span>
+          <h2 class="news-board-title">Bảng Thông Báo Chính</h2>
+        </div>
+        <div class="news-board-announcement">
+          <div class="announcement-content">
+            <strong>Thông báo quan trọng về tuyển sinh năm học 2025</strong>
+            <p>BTEC FPT chính thức mở đăng ký tuyển sinh cho năm học 2025 với nhiều chương trình học bổng hấp dẫn. Học sinh, sinh viên vui lòng truy cập website để xem chi tiết điều kiện, hồ sơ và thời gian đăng ký.</p>
+            <a href="https://btec.fpt.edu.vn/tuyen-sinh/" class="news-detail-btn" target="_blank">Xem chi tiết</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="news-tabs">
+      <button class="news-tab active" data-type="all"><span>📰</span> Tất cả tin tức</button>
+      <button class="news-tab" data-type="event"><span>📅</span> Sự kiện</button>
+      <button class="news-tab" data-type="company"><span>🏢</span> Doanh nghiệp</button>
+      <button class="news-tab" data-type="hanoi"><span>🏫</span> Hà Nội</button>
+    </div>
+    <div class="news-cards-grid">
+      <!-- Tin tức chung (all/event) -->
+      <div class="news-card" data-type="event">
+        <div class="news-card-icon"><img src="image/icon-lotus.png" alt="icon sự kiện"></div>
+        <div class="news-card-content">
+          <span class="news-card-type">Sự kiện</span>
+          <h3>Sinh viên BTEC FPT Đà Nẵng tham quan Woori Bank</h3>
+          <p>Sinh viên BTEC FPT Đà Nẵng đã có cơ hội tham quan và giao lưu tại Ngân hàng Woori Việt Nam, chi nhánh Đà Nẵng – một trong những ngân hàng lớn nhất Hàn Quốc.</p>
+          <div class="news-card-footer">
+            <span class="news-card-date">29/03/2025</span>
+            <a href="https://btec.fpt.edu.vn/sinh-vien-btec-fpt-da-nang-hao-hung-trong-chuyen-tham-quan-doanh-nghiep-den-woori-bank/" class="news-card-more" target="_blank">Xem thêm →</a>
+          </div>
+        </div>
+      </div>
+      <div class="news-card" data-type="event">
+        <div class="news-card-icon"><img src="image/icon-lotus.png" alt="icon sự kiện"></div>
+        <div class="news-card-content">
+          <span class="news-card-type">Sự kiện</span>
+          <h3>BTEC FPT TP.HCM tham dự Hội nghị tổng kết HSIA 2024</h3>
+          <p>BTEC FPT TP.HCM tham gia Hội nghị tổng kết hoạt động Hội Công nghệ Vi mạch Bán dẫn TP.HCM (HSIA) năm 2024 và lễ kết nạp hội viên.</p>
+          <div class="news-card-footer">
+            <span class="news-card-date">20/01/2025</span>
+            <a href="https://btec.fpt.edu.vn/btec-fpt-tphcm-tham-du-hoi-nghi-tong-ket-hsia-2024-va-le-ket-nap-hoi-vien/" class="news-card-more" target="_blank">Xem thêm →</a>
+          </div>
+        </div>
+      </div>
+      <!-- Tin Doanh nghiệp -->
+      <div class="news-card" data-type="company">
+        <div class="news-card-icon"><img src="image/icon-chat-box.png" alt="icon doanh nghiệp"></div>
+        <div class="news-card-content">
+          <span class="news-card-type">Doanh nghiệp</span>
+          <h3>Company Tour: FPT Telecom</h3>
+          <p>Sinh viên BTEC FPT tham quan FPT Telecom – doanh nghiệp hàng đầu ngành viễn thông, trải nghiệm thực tế môi trường làm việc hiện đại.</p>
+          <div class="news-card-footer">
+            <span class="news-card-date">16/09/2023</span>
+            <a href="https://btec.fpt.edu.vn/su-kien/company-tour-fpt-telecom-doanh-nghiep-hang-dau-trong-nganh-vien-thong-tai-viet-nam/" class="news-card-more" target="_blank">Xem thêm →</a>
+          </div>
+        </div>
+      </div>
+      <div class="news-card" data-type="company">
+        <div class="news-card-icon"><img src="image/icon-chat-box.png" alt="icon doanh nghiệp"></div>
+        <div class="news-card-content">
+          <span class="news-card-type">Doanh nghiệp</span>
+          <h3>Học qua thực tế cùng doanh nghiệp</h3>
+          <p>Tham quan, trải nghiệm thực tế tại các doanh nghiệp là hoạt động thường xuyên của BTEC FPT, giúp sinh viên cập nhật kiến thức thực tiễn.</p>
+          <div class="news-card-footer">
+            <span class="news-card-date">06/03/2023</span>
+            <a href="https://btec.fpt.edu.vn/hoc-qua-thuc-te-cung-doanh-nghiep-dac-san-btec-fpt/" class="news-card-more" target="_blank">Xem thêm →</a>
+          </div>
+        </div>
+      </div>
+      <div class="news-card" data-type="company">
+        <div class="news-card-icon"><img src="image/icon-chat-box.png" alt="icon doanh nghiệp"></div>
+        <div class="news-card-content">
+          <span class="news-card-type">Doanh nghiệp</span>
+          <h3>Lễ ký kết hợp tác phát triển nguồn nhân lực</h3>
+          <p>BTEC FPT HCM tổ chức thành công lễ ký kết hợp tác phát triển nguồn nhân lực với sự tham gia của đại diện 22 doanh nghiệp.</p>
+          <div class="news-card-footer">
+            <span class="news-card-date">26/10/2022</span>
+            <a href="https://btec.fpt.edu.vn/le-ky-ket-hop-tac-phat-trien-nguon-nhan-luc/" class="news-card-more" target="_blank">Xem thêm →</a>
+          </div>
+        </div>
+      </div>
+      <!-- Tin Hà Nội -->
+      <div class="news-card" data-type="hanoi">
+        <div class="news-card-icon"><img src="image/icon-lotus.png" alt="icon Hà Nội"></div>
+        <div class="news-card-content">
+          <span class="news-card-type">Hà Nội</span>
+          <h3>Họp mặt Câu lạc bộ IT – BTEC FPT Hà Nội</h3>
+          <p>Sự kiện họp mặt Câu lạc bộ IT, giao lưu, chia sẻ kinh nghiệm học tập và định hướng nghề nghiệp cho sinh viên BTEC FPT Hà Nội.</p>
+          <div class="news-card-footer">
+            <span class="news-card-date">07/09/2023</span>
+            <a href="https://btec.fpt.edu.vn/su-kien/btec-fpt-hn-hop-mat-cau-lac-bo-it-btec-fpt/" class="news-card-more" target="_blank">Xem thêm →</a>
+          </div>
+        </div>
+      </div>
+      <div class="news-card" data-type="hanoi">
+        <div class="news-card-icon"><img src="image/icon-lotus.png" alt="icon Hà Nội"></div>
+        <div class="news-card-content">
+          <span class="news-card-type">Hà Nội</span>
+          <h3>Ngày hội tuyển sinh 2025 – Khám phá tương lai</h3>
+          <p>Sự kiện tuyển sinh lớn nhất năm với nhiều hoạt động hấp dẫn, tư vấn chương trình học và cơ hội nhận học bổng tại BTEC FPT Hà Nội.</p>
+          <div class="news-card-footer">
+            <span class="news-card-date">20/01/2025</span>
+            <a href="https://btec.fpt.edu.vn/ngay-hoi-tuyen-sinh-2025/" class="news-card-more" target="_blank">Xem thêm →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="news-more-wrapper">
+      <button class="news-more-btn-main">Xem thêm tin tức ▼</button>
+    </div>
+  </section>
+  <!-- End Section: Tin tức – Bảng thông báo hiện đại -->
+  <!-- Footer -->
+  <footer class="btec-footer" id="contact">
+    <div class="btec-footer-container">
+      <div class="btec-footer-left">
+        <img src="image/Logo-Btec.png" alt="BTEC FPT Logo" class="btec-footer-logo">
+        <div class="btec-footer-school">Cao đẳng Anh Quốc BTEC FPT</div>
+        <div class="btec-footer-hotline-label-and-number">
+          <span class="btec-footer-hotline-label">Hotline 24/7</span>
+          <span class="btec-footer-hotline">0329 605 828</span>
+        </div>
+        <div class="btec-footer-social">
+          <a href="https://www.youtube.com/@CAOANGQUOCTEBTECFPT" target="_blank" aria-label="YouTube BTEC FPT" class="btec-footer-social-link">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="16" fill="white"/><path d="M24.8 12.4C24.6 11.6 24 11 23.2 10.8C21.8 10.4 16 10.4 16 10.4C16 10.4 10.2 10.4 8.8 10.8C8 11 7.4 11.6 7.2 12.4C6.8 13.8 6.8 16 6.8 16C6.8 16 6.8 18.2 7.2 19.6C7.4 20.4 8 21 8.8 21.2C10.2 21.6 16 21.6 16 21.6C16 21.6 21.8 21.6 23.2 21.2C24 21 24.6 20.4 24.8 19.6C25.2 18.2 25.2 16 25.2 16C25.2 16 25.2 13.8 24.8 12.4ZM14.4 18.4V13.6L19.2 16L14.4 18.4Z" fill="#FF0000"/></svg>
+          </a>
+          <a href="https://www.facebook.com/fptbtec" target="_blank" aria-label="Facebook BTEC FPT" class="btec-footer-social-link">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="16" fill="white"/><path d="M20.667 16H18V24H14V16H12V13H14V11.5C14 9.57 15.57 8 17.5 8H20V11H18.5C18.224 11 18 11.224 18 11.5V13H20.667V16Z" fill="#1877F3"/></svg>
+          </a>
+          <a href="https://www.instagram.com/btec.fpt/" target="_blank" aria-label="Instagram BTEC FPT" class="btec-footer-social-link">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="16" fill="white"/><path d="M16 11.2C13.348 11.2 11.2 13.348 11.2 16C11.2 18.652 13.348 20.8 16 20.8C18.652 20.8 20.8 18.652 20.8 16C20.8 13.348 18.652 11.2 16 11.2ZM16 19.2C14.232 19.2 12.8 17.768 12.8 16C12.8 14.232 14.232 12.8 16 12.8C17.768 12.8 19.2 14.232 19.2 16C19.2 17.768 17.768 19.2 16 19.2ZM21.6 11.2C21.6 11.752 21.152 12.2 20.6 12.2C20.048 12.2 19.6 11.752 19.6 11.2C19.6 10.648 20.048 10.2 20.6 10.2C21.152 10.2 21.6 10.648 21.6 11.2ZM24 12.4C23.96 11.16 23.68 10.08 22.8 9.2C21.92 8.32 20.84 8.04 19.6 8C18.36 7.96 13.64 7.96 12.4 8C11.16 8.04 10.08 8.32 9.2 9.2C8.32 10.08 8.04 11.16 8 12.4C7.96 13.64 7.96 18.36 8 19.6C8.04 20.84 8.32 21.92 9.2 22.8C10.08 23.68 11.16 23.96 12.4 24C13.64 24.04 18.36 24.04 19.6 24C20.84 23.96 21.92 23.68 22.8 22.8C23.68 21.92 23.96 20.84 24 19.6C24.04 18.36 24.04 13.64 24 12.4ZM22.4 21.2C21.8 21.8 20.96 22.08 19.6 22.12C18.24 22.16 13.76 22.16 12.4 22.12C11.04 22.08 10.2 21.8 9.6 21.2C9 20.6 8.72 19.76 8.68 18.4C8.64 17.04 8.64 12.96 8.68 11.6C8.72 10.24 9 9.4 9.6 8.8C10.2 8.2 11.04 7.92 12.4 7.88C13.76 7.84 18.24 7.84 19.6 7.88C20.96 7.92 21.8 8.2 22.4 8.8C23 9.4 23.28 10.24 23.32 11.6C23.36 12.96 23.36 17.04 23.32 18.4C23.28 19.76 23 20.6 22.4 21.2ZM16 10.4C13.348 10.4 11.2 12.548 11.2 15.2C11.2 17.852 13.348 20 16 20C18.652 20 20.8 17.852 20.8 15.2C20.8 12.548 18.652 10.4 16 10.4ZM16 18.4C14.232 18.4 12.8 16.968 12.8 15.2C12.8 13.432 14.232 12 16 12C17.768 12 19.2 13.432 19.2 15.2C19.2 16.968 17.768 18.4 16 18.4ZM21.6 10.4C21.6 10.952 21.152 11.4 20.6 11.4C20.048 11.4 19.6 10.952 19.6 10.4C19.6 9.848 20.048 9.4 20.6 9.4C21.152 9.4 21.6 9.848 21.6 10.4Z" fill="#E1306C"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@fpt_btec" target="_blank" aria-label="TikTok BTEC FPT" class="btec-footer-social-link">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="16" fill="white"/><path d="M22.5 14.5C21.1193 14.5 20 13.3807 20 12V10H18V22H20V18.5C20 17.1193 21.1193 16 22.5 16C23.8807 16 25 17.1193 25 18.5C25 19.8807 23.8807 21 22.5 21C21.1193 21 20 19.8807 20 18.5H18C18 20.9853 20.0147 23 22.5 23C24.9853 23 27 20.9853 27 18.5C27 16.0147 24.9853 14 22.5 14.5Z" fill="#000"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="btec-footer-right">
+        <div class="btec-footer-campus">
+          <div class="btec-footer-campus-title btec-orange">BTEC FPT Hà Nội</div>
+          <div class="btec-footer-campus-address">Toà BTEC FPT, Trịnh Văn Bô, Nam Từ Liêm,TP. Hà Nội</div>
+          <div class="btec-footer-campus-phone">098 109 05 13</div>
+        </div>
+        <div class="btec-footer-campus">
+          <div class="btec-footer-campus-title btec-orange">BTEC FPT Đà Nẵng</div>
+          <div class="btec-footer-campus-address">66 Võ Văn Tần, Q. Thanh Khê, TP. Đà Nẵng</div>
+          <div class="btec-footer-campus-phone">032 757 57 27</div>
+        </div>
+        <div class="btec-footer-campus">
+          <div class="btec-footer-campus-title btec-orange">BTEC FPT Hồ Chí Minh</div>
+          <div class="btec-footer-campus-address">Toà F, công viên phần mềm Quang Trung, P. Tân Chánh Hiệp, Q. 12, TP.Hồ Chí Minh</div>
+          <div class="btec-footer-campus-phone">035 385 21 38</div>
+        </div>
+        <div class="btec-footer-campus">
+          <div class="btec-footer-campus-title btec-orange">BTEC FPT Cần Thơ</div>
+          <div class="btec-footer-campus-address">Đường số 22, Phường Thường Thạnh, Quận Cái Răng, TP. Cần Thơ</div>
+          <div class="btec-footer-campus-phone">096 705 76 05</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- === CHATBOX GREETING === -->
+  <div class="chatbox-greeting">
+    <span>Xin chào, chúng tôi<br>sẵn sàng hỗ trợ</span>
+  </div>
+  <!-- === CHATBOX: hỏi đáp/liên hệ === -->
+  <button class="chatbox-toggle-btn" aria-label="Mở chat">
+    <img src="image/icon-chat-box.png" alt="Chatbox Icon" style="width:40px;height:40px;object-fit:contain;" />
+  </button>
+  <div class="chatbox" tabindex="-1">
+    <div class="custom-chatbox">
+      <div class="chatbox-title-box">
+        <img src="image/Logo-Btec.png" alt="BTEC Logo" class="chatbox-title-logo">
+        <span>Cao đẳng Anh Quốc BTEC FPT</span>
+      </div>
+      <div class="chatbox-options">
+        <button class="chatbox-option">
+          <img src="image-chat-box/icon-lotus-chatbox.png" alt="Icon hoa sen" class="chatbox-option-icon">
+          <span>Khóa học</span>
+        </button>
+        <button class="chatbox-option">
+          <img src="image-chat-box/icon-hat-chatbox.png" alt="Icon mũ Trạng Nguyên" class="chatbox-option-icon">
+          <span>Thông tin về trường</span>
+        </button>
+        <button class="chatbox-option">
+          <img src="image-chat-box/icon-drum-chatbox.png" alt="Icon trống đồng" class="chatbox-option-icon">
+          <span>Thêm</span>
+        </button>
+      </div>
+      <img src="image-chat-box/chatbox-corner-drum.png" alt="Icon trống nhỏ" class="chatbox-corner-icon">
+      <form class="chatbox-input-wrapper" autocomplete="off">
+        <input class="chatbox-input" type="text" placeholder="Nhập tin nhắn...">
+        <label class="chatbox-upload-label">
+          <input type="file" class="chatbox-upload" accept="image/*" multiple style="display:none;">
+          <span class="chatbox-upload-btn" title="Gửi ảnh">📎</span>
+        </label>
+      </form>
+    </div>
+  </div>
+  <!-- === END CHATBOX === -->
+
+  <!-- === POPUP ĐĂNG KÝ HỌC BỔNG === -->
+  <div id="registerScholarshipPopup" class="register-popup-overlay">
+    <div class="register-popup-box">
+      <button class="register-popup-close" id="registerScholarshipClose" aria-label="Đóng">×</button>
+      <div class="register-popup-content">
+        <div class="register-popup-form-col">
+          <h2 class="register-popup-title">Đăng ký nhận học bổng</h2>
+          <form class="register-popup-form">
+            <label>Họ và tên <span class="required">*</span>
+              <input type="text" name="name" placeholder="Nhập họ tên" required>
+            </label>
+            <label>Số điện thoại <span class="required">*</span>
+              <input type="tel" name="phone" placeholder="Nhập số điện thoại" required>
+            </label>
+            <label>Năm sinh <span class="required">*</span>
+              <input type="text" name="birthyear" placeholder="Năm sinh*" required>
+            </label>
+            <label>Cơ sở <span class="required">*</span>
+              <select name="campus" required>
+                <option value="">Chọn cơ sở*</option>
+                <option value="Hà Nội">Hà Nội</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                <option value="Cần Thơ">Cần Thơ</option>
+              </select>
+            </label>
+            <label>Ngành học
+              <select name="major">
+                <option value="">Chọn ngành học</option>
+                <option value="Lập trình máy tính">Lập trình máy tính</option>
+                <option value="Quản trị kinh doanh">Quản trị kinh doanh</option>
+                <option value="Thiết kế đồ họa">Thiết kế đồ họa</option>
+                <option value="Công nghệ bán dẫn">Công nghệ bán dẫn</option>
+                <option value="Thể thao điện tử">Thể thao điện tử</option>
+                <option value="Liên thông quốc tế">Liên thông quốc tế</option>
+              </select>
+            </label>
+            <button type="submit" class="register-popup-submit">Gửi đăng ký</button>
+          </form>
+        </div>
+        <div class="register-popup-img-col">
+          <img src="image/anh-dang-ky.jpg" alt="Đăng ký học bổng BTEC" class="register-popup-img">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- === END POPUP ĐĂNG KÝ HỌC BỔNG === -->
+
+  <script src="script.js"></script>
+</body>
+</html> 
