@@ -600,16 +600,33 @@
     <img src="image/icon-chat-box.png" alt="Chatbox Icon" style="width:40px;height:40px;object-fit:contain;" />
   </button>
   <div class="chatbox" tabindex="-1">
-    <div class="custom-chatbox" style="background: url('image-chat-box/chatbox-bg.png') center/cover no-repeat;">
-      <img src="image-chat-box/chatbox-ribbon.png" alt="Dải lụa đỏ trang trí" class="chatbox-ribbon">
-      <div class="chatbox-title-box">Bạn cần giúp đỡ gì</div>
+    <div class="custom-chatbox">
+      <div class="chatbox-title-box">
+        <img src="image/Logo-Btec.png" alt="BTEC Logo" class="chatbox-title-logo">
+        <span>Cao đẳng Anh Quốc BTEC FPT</span>
+      </div>
       <div class="chatbox-options">
-        <!-- Đã xóa tất cả các nút trong khung chatbox-options -->
+        <button class="chatbox-option">
+          <img src="image-chat-box/icon-lotus-chatbox.png" alt="Icon hoa sen" class="chatbox-option-icon">
+          <span>Khóa học</span>
+        </button>
+        <button class="chatbox-option">
+          <img src="image-chat-box/icon-hat-chatbox.png" alt="Icon mũ Trạng Nguyên" class="chatbox-option-icon">
+          <span>Thông tin về trường</span>
+        </button>
+        <button class="chatbox-option">
+          <img src="image-chat-box/icon-drum-chatbox.png" alt="Icon trống đồng" class="chatbox-option-icon">
+          <span>Thêm</span>
+        </button>
       </div>
       <img src="image-chat-box/chatbox-corner-drum.png" alt="Icon trống nhỏ" class="chatbox-corner-icon">
       <form class="chatbox-input-wrapper" autocomplete="off">
         <input class="chatbox-input" type="text" placeholder="Nhập tin nhắn...">
-        <button type="button" class="chatbox-send-btn" aria-label="Gửi tin nhắn">➤</button>
+        <label class="chatbox-upload-label">
+          <input type="file" class="chatbox-upload" accept="image/*" multiple style="display:none;">
+          <span class="chatbox-upload-btn" title="Gửi ảnh">📎</span>
+          <button type="button" class="chatbox-send-btn" aria-label="Gửi tin nhắn">➤</button>
+        </label>
       </form>
     </div>
   </div>
