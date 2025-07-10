@@ -450,7 +450,28 @@ if (chatboxToggleBtn && chatbox) {
     }
   });
 }
-
+// Xử lý click vào các option
+if (chatboxOptions) {
+  chatboxOptions.addEventListener('click', function(e) {
+    if (e.target.classList.contains('chatbox-option') || e.target.closest('.chatbox-option')) {
+      const option = e.target.closest('.chatbox-option');
+      const optionText = option.querySelector('span').textContent;
+      addUserMessage(optionText);
+      setTimeout(() => { addBotResponse(optionText); }, 500);
+      // Ẩn các lựa chọn và mở rộng chatbox
+      chatboxOptions.style.display = 'none';
+      const customChatbox = document.querySelector('.custom-chatbox');
+      if (customChatbox) {
+        customChatbox.classList.add('chatbox-expanded');
+      }
+      // Tăng chiều cao chatbox-body nếu cần
+      const chatBody = document.querySelector('.chatbox-body');
+      if (chatBody) {
+        chatBody.style.maxHeight = '320px';
+      }
+    }
+  });
+}
 // Nút "Xem chi tiết" mở chatbox
 const openChatboxBtn = document.querySelector('.open-chatbox-btn');
 if (openChatboxBtn && chatbox) {
