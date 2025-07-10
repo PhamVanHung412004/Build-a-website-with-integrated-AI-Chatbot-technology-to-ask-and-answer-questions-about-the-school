@@ -441,6 +441,18 @@ if (chatboxToggleBtn && chatbox) {
     chatbox.classList.toggle('open');
     if (chatbox.classList.contains('open')) {
       chatbox.focus();
+      // Hiện tin nhắn chào nếu chưa có tin nhắn nào
+      const chatBody = chatbox.querySelector('.chatbox-body');
+      if (chatBody && chatBody.children.length === 0) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'chat-message bot-message';
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        contentDiv.style.fontSize = '1.09rem';
+        contentDiv.textContent = 'Tôi là 1 trợ lý giới thiệu của trường cao đẳng Btec tôi có thể giúp gì cho bạn không ?';
+        msgDiv.appendChild(contentDiv);
+        chatBody.appendChild(msgDiv);
+      }
     }
   });
   // Đóng chatbox khi click ngoài vùng chatbox
