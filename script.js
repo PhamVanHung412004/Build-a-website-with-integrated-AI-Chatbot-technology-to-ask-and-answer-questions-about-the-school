@@ -463,9 +463,142 @@ if (openChatboxBtn && chatbox) {
     console.log('Chatbox opened:', chatbox.classList.contains('open')); // Debug
   });
 }
-// --- XỬ LÝ INPUT CHATBOX ---
+
+// --- XỬ LÝ INPUT CHATBOX VỚI BACKEND ---
 const chatboxInput = document.querySelector('.chatbox-input');
+const chatboxSendBtn = document.querySelector('.chatbox-send-btn');
+
+// Hàm gửi tin nhắn đến backend
+async function sendMessageToBackend(message) {
+  // Thêm tin nhắn loading
+  const loadingMsgId = addLoadingMessage();
+  
+  try {
+    const response = await fetch('http://localhost:5000/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message: message }),
+      mode: 'cors'
+    });
+    
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    
+    const data = await response.json();
+    
+    // Xóa tin nhắn loading
+    removeLoadingMessage(loadingMsgId);
+    
+    // Hiển thị phản hồi với hiệu ứng typewriter
+    if (data.response) {
+      addBotResponseTypewriter(data.response);
+    } else if (data.message) {
+      addBotResponseTypewriter(data.message);
+    } else if (data.answer) {
+      addBotResponseTypewriter(data.answer);
+    } else {
+      addBotResponseTypewriter('Xin lỗi, tôi không thể xử lý yêu cầu của bạn lúc này.');
+    }
+    
+  } catch (error) {
+    console.error('Error:', error);
+    removeLoadingMessage(loadingMsgId);
+    addBotResponseTypewriter('Xin lỗi, đã có lỗi xảy ra khi kết nối với server. Vui lòng thử lại sau.');
+  }
+}
+
+// Hàm thêm tin nhắn loading
+function addLoadingMessage() {
+  let chatBody = document.querySelector('.chatbox-body');
+  if (!chatBody) {
+    chatBody = document.createElement('div');
+    chatBody.className = 'chatbox-body';
+    const inputWrapper = document.querySelector('.chatbox-input-wrapper');
+    if (inputWrapper) inputWrapper.parentNode.insertBefore(chatBody, inputWrapper);
+  }
+  
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'chat-message bot-message loading-message';
+  msgDiv.id = 'loading-' + Date.now();
+  
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'message-content';
+  contentDiv.innerHTML = '<span class="typing-indicator"><span></span><span></span><span></span></span>';
+  
+  msgDiv.appendChild(contentDiv);
+  chatBody.appendChild(msgDiv);
+  chatBody.scrollTop = chatBody.scrollHeight;
+  
+  return msgDiv.id;
+}
+
+// Hàm xóa tin nhắn loading
+function removeLoadingMessage(loadingMsgId) {
+  const loadingMsg = document.getElementById(loadingMsgId);
+  if (loadingMsg) {
+    loadingMsg.remove();
+  }
+}
+
+// Hàm thêm phản hồi bot vào chatbox với hiệu ứng typewriter
+function addBotResponseTypewriter(responseText) {
+  let chatBody = document.querySelector('.chatbox-body');
+  if (!chatBody) {
+    chatBody = document.createElement('div');
+    chatBody.className = 'chatbox-body';
+    const inputWrapper = document.querySelector('.chatbox-input-wrapper');
+    if (inputWrapper) inputWrapper.parentNode.insertBefore(chatBody, inputWrapper);
+  }
+  
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'chat-message bot-message';
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'message-content';
+  
+  msgDiv.appendChild(contentDiv);
+  chatBody.appendChild(msgDiv);
+  
+  // Chuyển đổi \n thành <br> để giữ xuống dòng
+  const formattedText = responseText.replace(/\n/g, '<br>');
+  
+  // Hiệu ứng typewriter với HTML
+  let index = 0;
+  const speed = 15; // Tốc độ gõ chữ (ms)
+  let currentText = '';
+  
+  function typeWriter() {
+    if (index < formattedText.length) {
+      // Kiểm tra xem có phải đang ở trong tag HTML không
+      if (formattedText.charAt(index) === '<') {
+        // Tìm thẻ đóng
+        const tagEnd = formattedText.indexOf('>', index);
+        if (tagEnd !== -1) {
+          // Thêm cả tag HTML
+          currentText += formattedText.substring(index, tagEnd + 1);
+          index = tagEnd + 1;
+        } else {
+          currentText += formattedText.charAt(index);
+          index++;
+        }
+      } else {
+        currentText += formattedText.charAt(index);
+        index++;
+      }
+      
+      contentDiv.innerHTML = currentText;
+      chatBody.scrollTop = chatBody.scrollHeight;
+      setTimeout(typeWriter, speed);
+    }
+  }
+  
+  typeWriter();
+}
+
 if (chatboxInput) {
+  // Xử lý khi nhấn Enter
   chatboxInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
       e.preventDefault();
@@ -473,11 +606,24 @@ if (chatboxInput) {
       if (message) {
         addUserMessage(message);
         this.value = '';
-        setTimeout(() => { addBotResponse(message); }, 500);
+        sendMessageToBackend(message);
       }
     }
   });
 }
+
+// Xử lý khi click nút gửi
+if (chatboxSendBtn) {
+  chatboxSendBtn.addEventListener('click', function() {
+    const message = chatboxInput.value.trim();
+    if (message) {
+      addUserMessage(message);
+      chatboxInput.value = '';
+      sendMessageToBackend(message);
+    }
+  });
+}
+
 // Xử lý click vào các option
 if (chatboxOptions) {
   chatboxOptions.addEventListener('click', function(e) {
@@ -485,7 +631,7 @@ if (chatboxOptions) {
       const option = e.target.closest('.chatbox-option');
       const optionText = option.querySelector('span').textContent;
       addUserMessage(optionText);
-      setTimeout(() => { addBotResponse(optionText); }, 500);
+      sendMessageToBackend(optionText);
       // Ẩn các lựa chọn và mở rộng chatbox
       chatboxOptions.style.display = 'none';
       const customChatbox = document.querySelector('.custom-chatbox');
@@ -500,6 +646,7 @@ if (chatboxOptions) {
     }
   });
 }
+
 // Hàm thêm tin nhắn người dùng vào chatbox
 function addUserMessage(message) {
   let chatBody = document.querySelector('.chatbox-body');
@@ -518,7 +665,8 @@ function addUserMessage(message) {
   chatBody.appendChild(msgDiv);
   chatBody.scrollTop = chatBody.scrollHeight;
 }
-// Hàm thêm phản hồi bot vào chatbox
+
+// Hàm thêm phản hồi bot vào chatbox (giữ lại cho compatibility)
 function addBotResponse(userMessage) {
   let chatBody = document.querySelector('.chatbox-body');
   if (!chatBody) {
@@ -531,12 +679,12 @@ function addBotResponse(userMessage) {
   msgDiv.className = 'chat-message bot-message';
   const contentDiv = document.createElement('div');
   contentDiv.className = 'message-content';
-  // Phản hồi mẫu, có thể thay đổi logic trả lời tại đây
   contentDiv.textContent = 'Cảm ơn bạn đã chọn: ' + userMessage + '. Chức năng chat sẽ được cập nhật thêm!';
   msgDiv.appendChild(contentDiv);
   chatBody.appendChild(msgDiv);
   chatBody.scrollTop = chatBody.scrollHeight;
 }
+
 // === BỔ SUNG: XỬ LÝ GỬI VÀ HIỂN THỊ ẢNH TRONG CHATBOX ===
 const chatboxUpload = document.querySelector('.chatbox-upload');
 if (chatboxUpload) {
@@ -547,6 +695,8 @@ if (chatboxUpload) {
         const reader = new FileReader();
         reader.onload = function(evt) {
           addUserImage(evt.target.result, file.name);
+          // Gửi ảnh lên backend
+          sendImageToBackend(file);
         };
         reader.readAsDataURL(file);
       }
@@ -554,6 +704,41 @@ if (chatboxUpload) {
     chatboxUpload.value = '';
   });
 }
+
+// Hàm gửi ảnh lên backend
+async function sendImageToBackend(file) {
+  const loadingMsgId = addLoadingMessage();
+  
+  try {
+    const formData = new FormData();
+    formData.append('image', file);
+    
+    const response = await fetch('http://localhost:5000/chat-image', {
+      method: 'POST',
+      body: formData,
+      mode: 'cors'
+    });
+    
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    
+    const data = await response.json();
+    removeLoadingMessage(loadingMsgId);
+    
+    if (data.response) {
+      addBotResponseTypewriter(data.response);
+    } else {
+      addBotResponseTypewriter('Đã nhận được ảnh của bạn.');
+    }
+    
+  } catch (error) {
+    console.error('Error:', error);
+    removeLoadingMessage(loadingMsgId);
+    addBotResponseTypewriter('Xin lỗi, không thể xử lý ảnh lúc này.');
+  }
+}
+
 function addUserImage(imgSrc, fileName) {
   let chatBody = document.querySelector('.chatbox-body');
   if (!chatBody) {
@@ -915,3 +1100,46 @@ setTimeout(function() {
   }
 }, 10000);
 // === END POPUP ĐĂNG KÝ HỌC BỔNG === 
+
+// Thêm CSS cho typing indicator
+const style = document.createElement('style');
+style.textContent = `
+  .typing-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #999;
+    animation: typing 1.4s infinite ease-in-out;
+  }
+  
+  .typing-indicator span:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+  
+  .typing-indicator span:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+  
+  @keyframes typing {
+    0%, 80%, 100% {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .loading-message .message-content {
+    padding: 8px 12px;
+  }
+`;
+document.head.appendChild(style);

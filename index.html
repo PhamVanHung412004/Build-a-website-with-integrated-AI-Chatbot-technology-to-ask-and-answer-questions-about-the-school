@@ -30,7 +30,7 @@
       <a href="#highlights">Điểm nổi bật</a>
       <a href="#alumni">Cựu sinh viên</a>
       <a href="#news">Tin tức</a>
-      <a href="#contact" onclick="scrollToFooter()">Liên hệ</a>
+      <a href="#contact">Liên hệ</a>
       <button class="navbar-register-btn open-register-popup">
         <img src="image/icon-lotus.png" alt="Icon hoa sen" class="register-icon">
         <span>Đăng ký</span>
@@ -109,7 +109,7 @@
       <div class="hero-buttons">
         <button class="main-btn cta-btn open-register-popup">Đăng ký ngay</button>
         <button class="main-btn">Tìm hiểu thêm</button>
-        <button class="main-btn open-chatbox-btn">Xem chi tiết</button>
+        <button class="main-btn">Xem chi tiết</button>
       </div>
     </div>
     
@@ -542,7 +542,7 @@
   </section>
   <!-- End Section: Tin tức – Bảng thông báo hiện đại -->
   <!-- Footer -->
-  <footer class="btec-footer" id="contact">
+  <footer class="btec-footer">
     <div class="btec-footer-container">
       <div class="btec-footer-left">
         <img src="image/Logo-Btec.png" alt="BTEC FPT Logo" class="btec-footer-logo">
@@ -600,32 +600,16 @@
     <img src="image/icon-chat-box.png" alt="Chatbox Icon" style="width:40px;height:40px;object-fit:contain;" />
   </button>
   <div class="chatbox" tabindex="-1">
-    <div class="custom-chatbox">
-      <div class="chatbox-title-box">
-        <img src="image/Logo-Btec.png" alt="BTEC Logo" class="chatbox-title-logo">
-        <span>Cao đẳng Anh Quốc BTEC FPT</span>
-      </div>
+    <div class="custom-chatbox" style="background: url('image-chat-box/chatbox-bg.png') center/cover no-repeat;">
+      <img src="image-chat-box/chatbox-ribbon.png" alt="Dải lụa đỏ trang trí" class="chatbox-ribbon">
+      <div class="chatbox-title-box">Bạn cần giúp đỡ gì</div>
       <div class="chatbox-options">
-        <button class="chatbox-option">
-          <img src="image-chat-box/icon-lotus-chatbox.png" alt="Icon hoa sen" class="chatbox-option-icon">
-          <span>Khóa học</span>
-        </button>
-        <button class="chatbox-option">
-          <img src="image-chat-box/icon-hat-chatbox.png" alt="Icon mũ Trạng Nguyên" class="chatbox-option-icon">
-          <span>Thông tin về trường</span>
-        </button>
-        <button class="chatbox-option">
-          <img src="image-chat-box/icon-drum-chatbox.png" alt="Icon trống đồng" class="chatbox-option-icon">
-          <span>Thêm</span>
-        </button>
+        <!-- Đã xóa tất cả các nút trong khung chatbox-options -->
       </div>
       <img src="image-chat-box/chatbox-corner-drum.png" alt="Icon trống nhỏ" class="chatbox-corner-icon">
       <form class="chatbox-input-wrapper" autocomplete="off">
         <input class="chatbox-input" type="text" placeholder="Nhập tin nhắn...">
-        <label class="chatbox-upload-label">
-          <input type="file" class="chatbox-upload" accept="image/*" multiple style="display:none;">
-          <span class="chatbox-upload-btn" title="Gửi ảnh">📎</span>
-        </label>
+        <button type="button" class="chatbox-send-btn" aria-label="Gửi tin nhắn">➤</button>
       </form>
     </div>
   </div>
@@ -681,4 +665,4 @@
 
   <script src="script.js"></script>
 </body>
-</html> 
+</html>
