@@ -1,0 +1,3 @@
+backend/__pycache__/
+backend/RAG/__pycache__/
+backend/craw_data/
