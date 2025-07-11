@@ -32,7 +32,7 @@ Hệ thống crawl dữ liệu từ website trường học, tạo embeddings v�
 
 ### AI/ML Components
 - **Sentence Transformers**: Tạo embeddings cho documents
-- **BAAI/bge-base-en-v1.5**: Embedding model
+- **BAAI/bge-small-en-v1.5**: Embedding model
 - **gemini-2.5-flash**: Language model cho response generation
 
 ## Cài đặt
