@@ -62,10 +62,10 @@ pip install -r requirements.txt
 Tạo file `.env` trong thư mục root:
 ```bash
 # Gemini API
-Nếu dùng windows
+# Nếu dùng windows
 set GEMINI_API_KEY="Thay bằng API key của bạn"
 
-Nếu dùng ubuntu
+# Nếu dùng ubuntu
 export GEMINI_API_KEY="Thay bằng API của bạn"
 ```
 
@@ -81,11 +81,21 @@ python backend/main.py
 
 ### 2. Khởi động Frontend
 ```bash
-chạy file index.html
+# Cú pháp trên windows
+start docs/index.html
+```
+```bash
+Nếu muốn test thử chatbot chạy ở máy bạn thì bạn tìm dòng số 510 ở file 'script.js' thay cổng từ 'https://ef02fec66d8a.ngrok-free.app/chat' thành 'http://localhost:5000/chat'
+
+```
+
+```bash
+# chạy lệnh sau trong terminal để mở frontend
+start docs/index.html
 ```
 
 ### 4. Sử dụng Chatbot
-1. Truy cập https://phamvanhung412004.github.io/Build-a-website-with-integrated-AI-Chatbot-technology-to-ask-and-answer-questions-about-the-school/
+1. Truy cập: https://phamvanhung412004.github.io/Build-a-website-with-integrated-AI-Chatbot-technology-to-ask-and-answer-questions-about-the-school/
 
 2. Nhập câu hỏi vào chat interface
 3. Hệ thống sẽ tự động tìm kiếm thông tin liên quan và trả lời
