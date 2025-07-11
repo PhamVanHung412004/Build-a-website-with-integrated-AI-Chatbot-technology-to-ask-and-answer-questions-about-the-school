@@ -803,7 +803,7 @@ html, body {
 
 @media (max-width: 1024px) {
   .hero-section {
-    background: url('Imageall/hero-bg-mobile.png') center/cover no-repeat;
+    background: url('Imageall/image/hero-bg-mobile.png') center/cover no-repeat;
     position: relative;
   }
   .hero-bg {
