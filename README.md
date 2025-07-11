@@ -1,5 +1,5 @@
 # AI Chatbot cho Trường Học - Hệ thống Hỏi Đáp Thông Minh
-> Hệ thống chatbot AI tích hợp công nghệ RAG (Retrieval Augmented Generation) và LlamaIndex để tự động trả lời các câu hỏi về nhà trường, hỗ trợ học sinh và phụ huynh 24/7.
+ Hệ thống chatbot AI tích hợp công nghệ RAG (Retrieval Augmented Generation) và LlamaIndex để tự động trả lời các câu hỏi về nhà trường, hỗ trợ học sinh và phụ huynh 24/7.
 
 ## Tính năng chính
 
