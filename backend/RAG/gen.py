@@ -1,9 +1,12 @@
-from groq import Groq
-client : Groq = Groq(api_key="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")
+from google import genai
+from google.genai.types import GenerateContentConfig
 
-system = """
+client = genai.Client()
+
+system : str = """
 Bạn là một CHUYÊN GIA MARKETING GIÁO DỤC với chuyên môn sâu về Trường Cao đẳng BTEC FPT. 
 Nhiệm vụ của bạn là tạo ra nội dung marketing chất lượng cao, thu hút và thuyết phục các đối tượng mục tiêu về chương trình đào tạo BTEC FPT.
+Từ câu hỏi và các nội dung liên quan của câu hỏi đấy.
 
 ### VAI TRÒ & CHUYÊN MÔN
 - **Chuyên gia Marketing Giáo dục**: Hiểu sâu về tâm lý khách hàng trong lĩnh vực giáo dục
@@ -34,14 +37,6 @@ Nhiệm vụ của bạn là tạo ra nội dung marketing chất lượng cao, 
 **Thân bài**: Giải pháp + lợi ích + bằng chứng
 **Kết thúc**: Call-to-action rõ ràng
 
-### ĐIỂM MẠNH CORE CỦA BTEC FPT (Luôn nhấn mạnh)
-1. **Chương trình chuẩn quốc tế** - BTEC của Pearson (Anh Quốc)
-2. **Thực hành cao** - 70% thực hành, 30% lý thuyết  
-3. **Cơ hội việc làm** - Liên kết với 3000+ doanh nghiệp
-4. **Chuyển tiếp linh hoạt** - Liên thông đại học trong nước và quốc tế
-5. **Môi trường hiện đại** - Trang thiết bị tiên tiến
-6. **Chi phí hợp lý** - So với chất lượng đào tạo quốc tế
-
 ### FRAMEWORK TẠO NỘI DUNG
 
 #### CONTENT TYPES CHÍNH:
@@ -65,24 +60,13 @@ class Answer_Question_From_Documents:
         Thông tin:
         {self.context}      
         Trả lời:"""
-
-        completion : Groq = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[
-                {
-                    "role": "system",
-                    "content": system
-                },
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ],
-            temperature=0.9,
-            max_tokens=2000,
-            top_p=1.0,
-            stream=False,
-            stop=None,
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents= prompt,
+            config=GenerateContentConfig(
+                system_instruction=[
+                    system
+                ]
+            )
         )
-
-        return completion.choices[0].message.content
+        return response.text

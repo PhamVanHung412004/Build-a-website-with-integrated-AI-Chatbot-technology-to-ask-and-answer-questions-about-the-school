@@ -14,3 +14,13 @@ llama-index-core>=0.10.20
 llama-index-vector-stores-faiss>=0.1.0
 llama-index-embeddings-huggingface>=0.1.0
 
+# model gen
+google-genai
+groq==0.29.0
+
+# Backend Flask API
+flask>=2.0.0
+flask-cors>=3.0.10
+
+
+

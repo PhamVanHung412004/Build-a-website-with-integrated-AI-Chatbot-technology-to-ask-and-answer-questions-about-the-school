@@ -1,20 +1,18 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
-
 from dataclasses import dataclass
+from flask_cors import CORS
+import torch
+from typing import (
+    Dict
+)
+
 from RAG import (
     VectorDB_Manager,
     Answer_Question_From_Documents,
     Sematic_Search
 )
 
-from typing import (
-    Dict
-)
-
-import torch
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-
 from dataclasses import dataclass
 
 app = Flask(__name__)
@@ -26,7 +24,7 @@ class INIT_INFORMATION_VECTORDB:
     embed_model : HuggingFaceEmbedding = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5", device=device_type)
     vectorDB = VectorDB_Manager(embed_model, device_type)
     index = vectorDB.load_index("VectorDB")
-    retriever = index.as_retriever(similarity_top_k=2)
+    retriever = index.as_retriever(similarity_top_k=1)
 
 @app.route('/chat', methods=['POST'])
 def chat():
@@ -34,7 +32,7 @@ def chat():
     message : str = data.get('message', '')
     get_context : str = Sematic_Search(message).run(INIT_INFORMATION_VECTORDB.retriever)
     result : str = Answer_Question_From_Documents(message,get_context).run()
-    return jsonify({'reply': f"""Câu hỏi: {result}"""})
+    return jsonify({"response": result})
 
 if __name__ == '__main__':
     # Bật chế độ debug để tự động reload khi có thay đổi code

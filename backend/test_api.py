@@ -13,8 +13,9 @@ while(True):
 
         # Sau khi chắc chắn là JSON thì mới parse
         data = response.json()
-        print("Câu trả lời: ", data.get("reply"))
-
+        print("-" * 50)
+        print("Câu trả lời: ", data.get("response"))
+        print("-" * 50)
     except requests.exceptions.JSONDecodeError:
         print("Lỗi: Backend không trả về JSON.")
     except requests.exceptions.RequestException as e:
