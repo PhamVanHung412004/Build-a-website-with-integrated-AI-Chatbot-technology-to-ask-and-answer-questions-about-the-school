@@ -48,11 +48,15 @@ cd Build-a-website-with-integrated-AI-Chatbot-technology-to-ask-and-answer-quest
 # Tạo môi trường với conda (yêu cầu Miniconda or Anaconda)
 conda create -n tên_môi_trường python=3.10
 ```
-
 ```bash
-#khởi động môi trường ảo
+# khởi động môi trường ảo
 conda activate tên_môi_trường
 ```
+```bash
+# cài đặt các thư viện cần thiết
+pip install -r requirements.txt
+```
+
 ## Cấu hình
 ### 1. Environment Variables
 Tạo file `.env` trong thư mục root:
@@ -62,18 +66,12 @@ Nếu dùng windows
 set GEMINI_API_KEY="Thay bằng API key của bạn"
 
 Nếu dùng ubuntu
-export GEMINI_API_KEY= "Thay bằng API của bạn"
+export GEMINI_API_KEY="Thay bằng API của bạn"
 ```
 
 ## Hướng dẫn sử dụng
 
-### 1. Crawl dữ liệu từ website trường
-```bash
-# Chạy web crawler để thu thập dữ liệu
-python craw_data/run.py
-```
-
-### 2. Khởi động Backend
+### 1. Khởi động Backend
 ```bash
 # Chạy Flask API server
 python backend/main.py
@@ -81,7 +79,7 @@ python backend/main.py
 # Server sẽ chạy tại: http://localhost:5000
 ```
 
-### 3. Khởi động Frontend
+### 2. Khởi động Frontend
 ```bash
 chạy file index.html
 ```
@@ -120,7 +118,7 @@ Hệ thống sẽ:
 
 ## Liên hệ
 
-- **Developer**: Phạm Văn Hưng
+- **Developer**: Phạm Văn Hùng
 - **Email**: phamvanhung412004@gmail.com
 - **GitHub**: [@PhamVanHung412004](https://github.com/PhamVanHung412004)
 
@@ -128,7 +126,6 @@ Hệ thống sẽ:
 
 - Gemini cho Gemini API
 - LlamaIndex community
-- BTEC FPT University cho data source
 - Các contributor và tester
 
 ---
