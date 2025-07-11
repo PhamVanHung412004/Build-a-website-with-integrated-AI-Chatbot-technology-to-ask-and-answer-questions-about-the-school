@@ -85,7 +85,7 @@ python backend/main.py
 start docs/index.html
 ```
 ```bash
-Nếu muốn test thử chatbot chạy ở máy bạn thì bạn tìm dòng số 510 ở file 'script.js' thay cổng từ 'https://ef02fec66d8a.ngrok-free.app/chat' thành 'http://localhost:5000/chat'
+Nếu muốn test thử chatbot chạy ở máy bạn thì bạn tìm dòng số 510 ở file 'docs/script.js' thay cổng từ 'https://ef02fec66d8a.ngrok-free.app/chat' thành 'http://localhost:5000/chat'
 
 ```
 
